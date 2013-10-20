@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package hhf.logger.tests;
+package test.logger;
 
 import hhf.logger.LoggerName;
 import hhf.logger.LoggerProducer;
