@@ -12,6 +12,7 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ArchivePaths;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.asset.FileAsset;
 import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
@@ -57,9 +58,8 @@ public class LoggerTest {
 	 * @return 
 	 */
 	public static JavaArchive createTestArchive() {
-		File beans = new File("src/main/resources/META-INF/beans.xml");
 		JavaArchive jar = ShrinkWrap.create(JavaArchive.class, "test.jar")
-				  .addAsManifestResource(new FileAsset(beans), ArchivePaths.create("beans.xml"))
+				  .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
 				  .addClass(LoggerTest.class);
 		System.out.println(jar.toString(true));
 		return jar;
