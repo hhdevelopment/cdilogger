@@ -44,7 +44,7 @@ public class LoggerTest {
 	 * logger est ajouté à l'ear en tant que librairie
 	 * @return 
 	 */
-	public static JavaArchive createLibArchive() {
+	private static JavaArchive createLibArchive() {
 		File beans = new File("src/main/resources/META-INF/beans.xml");
 		JavaArchive jar = ShrinkWrap.create(JavaArchive.class, "logger.jar")
 				  .addAsManifestResource(new FileAsset(beans), ArchivePaths.create("beans.xml"))
@@ -57,7 +57,7 @@ public class LoggerTest {
 	 * Les classes de tests sont ajoutées à l'ear comme module ejb, car la classe doit être managé
 	 * @return 
 	 */
-	public static JavaArchive createTestArchive() {
+	private static JavaArchive createTestArchive() {
 		JavaArchive jar = ShrinkWrap.create(JavaArchive.class, "test.jar")
 				  .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
 				  .addClass(LoggerTest.class);
