@@ -31,10 +31,14 @@ public class LoggerTest {
 	@Inject
 	private Logger logger;
 
+	/**
+	 * Pour tester l'api dans le contener JEE on crée un ear
+	 * @return 
+	 */
 	@Deployment
 	public static EnterpriseArchive createEarArchive() {
 		EnterpriseArchive ear = ShrinkWrap.create(EnterpriseArchive.class, "test.ear")
-				  .addAsLibraries(createLibArchive())
+				  .addAsLibraries(createLoggerLibArchive())
 				  .addAsModule(createTestArchive());
 		System.out.println(ear.toString(true));
 		return ear;
@@ -44,7 +48,7 @@ public class LoggerTest {
 	 * logger est ajouté à l'ear en tant que librairie
 	 * @return 
 	 */
-	private static JavaArchive createLibArchive() {
+	private static JavaArchive createLoggerLibArchive() {
 		File beans = new File("src/main/resources/META-INF/beans.xml");
 		JavaArchive jar = ShrinkWrap.create(JavaArchive.class, "logger.jar")
 				  .addAsManifestResource(new FileAsset(beans), ArchivePaths.create("beans.xml"))
