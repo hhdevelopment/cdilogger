@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>hhf</groupId>
-	<artifactId>logger</artifactId>
+	<artifactId>cdi-logger</artifactId>
 	<version>1.0.6</version>
 	<packaging>jar</packaging>
 
-	<name>logger</name>
+	<name>cdi-logger</name>
 
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
