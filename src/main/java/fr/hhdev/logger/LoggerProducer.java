@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package hhf.logger;
+package fr.hhdev.logger;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Produces;

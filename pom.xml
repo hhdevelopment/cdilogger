@@ -7,6 +7,11 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
+	<properties>
+		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<groupId>fr.hhdev</groupId>
 	<artifactId>cdilogger</artifactId>
 	<version>1.0-SNAPSHOT</version>

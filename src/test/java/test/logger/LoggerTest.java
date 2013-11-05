@@ -4,8 +4,8 @@
  */
 package test.logger;
 
-import hhf.logger.LoggerName;
-import hhf.logger.LoggerProducer;
+import fr.hhdev.logger.LoggerName;
+import fr.hhdev.logger.LoggerProducer;
 import java.io.File;
 import javax.inject.Inject;
 import org.jboss.arquillian.container.test.api.Deployment;
