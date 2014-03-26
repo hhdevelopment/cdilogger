@@ -30,6 +30,9 @@ public class LoggerTest {
 
 	@Inject
 	private Logger logger;
+	@Inject
+        @LoggerName("TEST")
+	private Logger loggertest;
 
 	/**
 	 * Pour tester l'api dans le contener JEE on crée un ear
@@ -76,6 +79,18 @@ public class LoggerTest {
 	@Test
 	public void testLoggerInjected() throws Exception {
 		assertNotNull(logger);
-		logger.info("Logger injected");
+		logger.info("Logger {} injected", this.getClass().getName());
+                assertEquals(this.getClass().getName(), logger.getName());
+	}
+
+	/**
+	 * On test juste voir si le logger a bien été injecté, il ne doit pas être null
+	 * @throws Exception 
+	 */
+	@Test
+	public void testLoggerTestInjected() throws Exception {
+		assertNotNull(loggertest);
+		logger.info("Logger TEST injected");
+                assertEquals("TEST", loggertest.getName());
 	}
 }
