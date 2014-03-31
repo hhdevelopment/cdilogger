@@ -20,7 +20,7 @@ and use injection in your code.
 Documentation
 -------------
 
-<code java>
+``` java
 @LocalBean
 @Stateless
 package myPackage {
@@ -42,5 +42,5 @@ package myPackage {
     Logger logger;
   }
 }
-</code>
+```
 
