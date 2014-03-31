@@ -1,15 +1,17 @@
 README
 ======
 
-What is cdilogger?
------------------
+What is cdilogger ?
+-------------------
 
-cdilogger is easy use logger for jee application with cdi weld
+cdilogger is easy use logger SLF4J for jee application with cdi weld
 
 Requirements
 ------------
 
 an application ear packaged, with bean.xml.
+An the implementation of logger chosed in your classpath.
+Logback is recommanded.
 
 Installation
 ------------
