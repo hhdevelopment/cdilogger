@@ -20,18 +20,27 @@ and use injection in your code.
 Documentation
 -------------
 
+<code java>
 @LocalBean
 @Stateless
-public class MyEJB {
+package myPackage {
+  public class MyEJB() {
 
-@Inject
-private Logger logger;
+    /**
+     * This inject a logger name "myPackage.MyClass"
+     * Like you write logger = LoggerFactory.getLogger(MyClass.class)
+     */
+    @Inject
+    Logger logger;
 
-
-@Inject
-@LoggerName("SECURITY")
-private Logger loggerSecurity;
-
-
+    /**
+     * And this inject logger named "SPECIFICLOGGER"
+     * Like you write logger = LoggerFactory.getLogger("SPECIFICLOGGER")
+     */
+    @Inject
+    @LoggerName("SPECIFICLOGGER")
+    Logger logger;
+  }
 }
+</code>
 
