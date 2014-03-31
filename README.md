@@ -1,2 +1,2 @@
-fr-hhdev-cdilogger
-==================
+cdilogger
+=========
