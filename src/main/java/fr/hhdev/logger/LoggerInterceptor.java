@@ -19,7 +19,6 @@ import org.slf4j.MDC;
  */
 @Interceptor
 @LoggerMDC(key="", value = "")
-@ExcludeDefaultInterceptors
 public class LoggerInterceptor implements Serializable {
 	
 	/**

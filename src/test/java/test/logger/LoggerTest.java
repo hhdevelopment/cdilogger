@@ -17,6 +17,7 @@ import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.asset.FileAsset;
 import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,9 +34,6 @@ public class LoggerTest {
 	@Inject
 	private BeanIntercepted bean;
 	
-	@EJB
-	private EjbIntercepted ejb;
-
 	@Inject
 	private Logger logger;
 	@Inject
@@ -49,7 +47,9 @@ public class LoggerTest {
 	 */
 	@Deployment
 	public static EnterpriseArchive createEarArchive() {
+		File[] libs = Maven.resolver().loadPomFromFile("pom.xml").importRuntimeDependencies().resolve().withTransitivity().asFile();
 		EnterpriseArchive ear = ShrinkWrap.create(EnterpriseArchive.class, "test.ear")
+				  .addAsLibraries(libs)
 				  .addAsLibraries(createLoggerLibArchive())
 				  .addAsModule(createTestArchive());
 		System.out.println(ear.toString(true));
@@ -151,8 +151,8 @@ public class LoggerTest {
 	public void testLoggerMDCOnEjb() throws Exception {
 		logger.info("Logger MDC on Ejb");
 		MDC.put("MDC", null);
-//		ejb.methodWithMDCUpdated();
+		bean.methodWithCallEJB();
 		String value = MDC.get("MDC");
-//		assertEquals("TEST2", value);
+		assertEquals("TEST2", value);
 	}
 }

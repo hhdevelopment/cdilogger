@@ -7,6 +7,7 @@
 package test.logger;
 
 import fr.hhdev.logger.LoggerMDC;
+import javax.ejb.EJB;
 
 /**
  *
@@ -14,6 +15,9 @@ import fr.hhdev.logger.LoggerMDC;
  */
 public class BeanIntercepted {
 	
+	@EJB
+	private EjbIntercepted ejb;
+
 	@LoggerMDC(key = "MDC", value = "TEST")
 	public void methodWithMDCUpdated() {
 		
@@ -22,5 +26,9 @@ public class BeanIntercepted {
 	@LoggerMDC(key = "MDC", value = "TEST2")
 	public void method2WithMDCUpdated() {
 		
+	}
+
+	public void methodWithCallEJB() {
+		ejb.methodWithMDCUpdated();
 	}
 }
