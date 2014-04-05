@@ -17,28 +17,28 @@ import org.slf4j.LoggerFactory;
  */
 public class LoggerProducer {
 
-    /**
-     *
-     * @param injectionPoint
-     * @return
-     */
-    @Produces
-    @Default
-    public Logger getLogger(InjectionPoint injectionPoint) {
-        String loggerName = injectionPoint.getMember().getDeclaringClass().getName();
-        return LoggerFactory.getLogger(loggerName);
-    }
+	/**
+	 *
+	 * @param injectionPoint
+	 * @return
+	 */
+	@Produces
+	@Default
+	public Logger getLogger(InjectionPoint injectionPoint) {
+		String loggerName = injectionPoint.getMember().getDeclaringClass().getName();
+		return LoggerFactory.getLogger(loggerName);
+	}
 
-    /**
-     *
-     * @param injectionPoint
-     * @return
-     */
-    @Produces
-    @LoggerName("")
-    public Logger getLoggerNamed(InjectionPoint injectionPoint) {
-        Annotated annotated = injectionPoint.getAnnotated();
-        LoggerName ln = annotated.getAnnotation(LoggerName.class);
-        return LoggerFactory.getLogger(ln.value());
-    }
+	/**
+	 *
+	 * @param injectionPoint
+	 * @return
+	 */
+	@Produces
+	@LoggerName("")
+	public Logger getLoggerNamed(InjectionPoint injectionPoint) {
+		Annotated annotated = injectionPoint.getAnnotated();
+		LoggerName ln = annotated.getAnnotation(LoggerName.class);
+		return LoggerFactory.getLogger(ln.value());
+	}
 }
