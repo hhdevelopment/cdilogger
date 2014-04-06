@@ -72,6 +72,18 @@ package myPackage {
 Here the method 'getMessage' is decorate by the additionnal MDC setting.
 if MDC settings are cascading, the previous setting is define when the method done.
 
+```
+<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender"> 
+  <layout>
+    <Pattern>%X{CALL} - %m%n</Pattern>
+  </layout> 
+</appender>
+```
+
+```
+log : EXTERN - call getMessage : foo
+```
+
 
 
 
