@@ -4,7 +4,7 @@
 	<repositories>
 		<repository>
 			<id>fr.hhdev</id>
-			<url>http://37.187.237.177:8081/artifactory/libs-release-local</url>
+			<url>http://dev.hhome.fr:8081/artifactory/libs-release-local</url>
 		</repository>
 	</repositories>
 
