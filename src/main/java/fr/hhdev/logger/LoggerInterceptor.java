@@ -32,7 +32,6 @@ public class LoggerInterceptor implements Serializable {
 	public Object decorate(InvocationContext invocationContext) throws Exception {
 		LoggerMDC mdc = invocationContext.getMethod().getAnnotation(LoggerMDC.class);
 		String oldValue = MDC.get(mdc.key());
-		System.out.println("================MDC = "+oldValue);
 		MDC.put(mdc.key(), mdc.value());
 		Object result = invocationContext.proceed();
 		if(oldValue!=null) {
