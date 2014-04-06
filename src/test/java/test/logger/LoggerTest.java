@@ -76,7 +76,7 @@ public class LoggerTest {
 	 * @return
 	 */
 	private static JavaArchive createTestArchive() {
-		File logback = new File("src/test/resources/logback-test.xml");
+		File logback = new File("src/test/resources/logback-test.groovy");
 		JavaArchive jar = ShrinkWrap.create(JavaArchive.class, "test-ejb.jar")
 				  .addAsManifestResource(new FileAsset(logback), "logback-test.xml")
 				  .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
