@@ -19,7 +19,7 @@ public class LoggerProducer {
 
 	/**
 	 *
-	 * @param injectionPoint
+	 * @param injectionPoint : argument injected
 	 * @return
 	 */
 	@Produces
@@ -30,8 +30,9 @@ public class LoggerProducer {
 	}
 
 	/**
-	 *
-	 * @param injectionPoint
+	 * Producer pour les logger annotés avec LoggerName
+	 * Ceci pour créer un logger nommé.
+	 * @param injectionPoint : argument injected
 	 * @return
 	 */
 	@Produces

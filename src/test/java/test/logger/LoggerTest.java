@@ -7,7 +7,6 @@ package test.logger;
 import fr.hhdev.logger.LoggerName;
 import fr.hhdev.logger.LoggerProducer;
 import java.io.File;
-import javax.ejb.EJB;
 import javax.inject.Inject;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -38,7 +37,7 @@ public class LoggerTest {
 	private Logger logger;
 	@Inject
 	@LoggerName("TEST")
-	private Logger loggertest;
+	private Logger loggerTest;
 
 	/**
 	 * Pour tester l'api dans le contener JEE on crée un ear
@@ -104,9 +103,9 @@ public class LoggerTest {
 	 */
 	@Test
 	public void testLoggerTestInjected() throws Exception {
-		assertNotNull(loggertest);
+		assertNotNull(loggerTest);
 		logger.info("Logger TEST injected");
-		assertEquals("TEST", loggertest.getName());
+		assertEquals("TEST", loggerTest.getName());
 	}
 
 
@@ -126,19 +125,15 @@ public class LoggerTest {
 
 	/**
 	 * On test si le MDC a bien été mis à jour par l'intercepteur
-	 * MAis qu'il est bien repositionné en sortant
+	 * Mais qu'il est bien repositionné en sortant
 	 *
 	 * @throws Exception
 	 */
 	@Test
 	public void tesCascadetLoggerMDCOnBean() throws Exception {
-		logger.info("Logger MDC on Bean");
-		MDC.put("MDC", null);
-		bean.methodWithMDCUpdated();
-		String value = MDC.get("MDC");
-		assertEquals("TEST", value);
+		testLoggerMDCOnBean();
 		bean.method2WithMDCUpdated();
-		value = MDC.get("MDC");
+		String value = MDC.get("MDC");
 		assertEquals("TEST", value);
 	}
 

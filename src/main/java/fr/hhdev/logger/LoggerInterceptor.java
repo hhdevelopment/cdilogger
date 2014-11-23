@@ -8,7 +8,6 @@ package fr.hhdev.logger;
 
 import java.io.Serializable;
 import javax.interceptor.AroundInvoke;
-import javax.interceptor.ExcludeDefaultInterceptors;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import org.slf4j.MDC;
