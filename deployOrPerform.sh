@@ -2,7 +2,10 @@
 CURRENT_VERSION=`python -c "import xml.etree.ElementTree as ET; print(ET.parse(open('pom.xml')).getroot().find('{http://maven.apache.org/POM/4.0.0}version').text)"`
 echo "CURRENT_VERSION = "$CURRENT_VERSION
 echo "releaseVersion = "$releaseVersion
-PERFORM="$CURRENT_VERSION" eq "$releaseVersion-SNAPSHOT"
+PERFORM=false
+if [ "$CURRENT_VERSION" = "$releaseVersion-SNAPSHOT" ] then
+   PERFORM=true
+fi
 echo "PERFORM = "$PERFORM
 # mvn --B -Dtag=${project-name}-${releaseVersion} release:prepare \
 #                 -DreleaseVersion=${releaseVersion} \
